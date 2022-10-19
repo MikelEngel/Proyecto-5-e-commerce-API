@@ -1,30 +1,28 @@
 require ("dotenv").config();
 
 /* 
-1. Importar express y sus funciones
-2. Hacer instancia de la aplicación
-3. Middlewares
-4. Declarar las rutas
-5. Levantar servidor.
+1. Importar express
+2. Crear modelos
+3. Crear controladores
+4. Crear rutas
+5. Hacer instancia de la aplicación
+6. Importar rutas
+7. Middlewares
+8. Levantar servidor.
 */
 
 
 //! 1
 const express = require('express');
 
-//! 2
+//! 5
 const app = express();
 
-//!3
+//!5
 app.use(express.json());
 
 
-//!4
-app.get("/", (req, res)=> {
-    res.json({ mensaje: "Bienvenido" });
-});
-
-//!5
+//!8
 app.listen(process.env.PORT, ()=>{
     console.log(`Servidor iniciado en el puerto: ${process.env.PORT}`)
 });
