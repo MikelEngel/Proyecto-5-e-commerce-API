@@ -14,6 +14,24 @@ const registro = async (req, res) => {
             return res.status(400).json({ mensaje: "Error", detalles: e.message });    
         }
     };
+
+    const verUsuarios = async (req, res) => {
+        try {
+            const usuarios = await User.find();
+            if(!usuarios.length)
+            return res
+            .status(404)
+            .json ({ mensaje: "Error", detalles: "Colección vacia" });
+            return res
+            .status(200)
+            .json({ mensaje: "Usuarios encontrados", detalles: usuarios })
+
+        }catch (e) {
+            return res.status(400).json({ mensaje: "Error", detalles: e.message })
+        }
+    }
+
+
 module.exports = {
     registro,
     verUsuarios,
